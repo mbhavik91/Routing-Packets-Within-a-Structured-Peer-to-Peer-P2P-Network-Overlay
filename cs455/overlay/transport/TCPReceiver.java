@@ -37,8 +37,6 @@ public class TCPReceiver implements Runnable {
 	@Override
 	public void run() {
 
-		//System.out.println("in run");
-
 		receive();
 
 	}
@@ -50,20 +48,18 @@ public class TCPReceiver implements Runnable {
 
 		try {
 			while (socket!=null) {
-				 //System.out.println("In Receiver --->" + dataInputStream);
+				 
 				dataLenght = dataInputStream.readInt();
 				data = new byte[dataLenght];
 				dataInputStream.readFully(data, 0, dataLenght);
 				// System.out.println(data);
 				Event e = EventFactory.createEvent(data);
 				node.onEvent(e, socket);
-				// System.out.println("OnEvenet");
-
-				// System.out.println("In TCP Receiver"+data);
+				
 			}
 
 		} catch (Exception e) {
-			// System.out.println("Exception in TCPReceiver");
+			
 			e.printStackTrace();
 		}
 
