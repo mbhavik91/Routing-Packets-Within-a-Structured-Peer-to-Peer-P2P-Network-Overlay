@@ -2,7 +2,7 @@
  * 
  */
 package cs455.overlay.node;
-
+//
 import java.io.IOException;
 import java.net.InetAddress;
 import java.net.Socket;
@@ -82,12 +82,12 @@ public class MessagingNode implements Node {
 		
 		InteractiveCommandPareser mnicp = new InteractiveCommandPareser(this);
 		mnicp.start();
-		/*System.out.println("port ke pehle");
+		/*
 		System.out.println("Server port------------------------"+serverPort);*/
 		ip = 	InetAddress.getLocalHost().getHostAddress();
 		OverlayNodeSendsRegistrationRequest sendRegistrationRequest = new OverlayNodeSendsRegistrationRequest(InetAddress.getLocalHost().getHostAddress(), serverPort);
 		//System.out.println(sendRegistrationRequest.getMyBytes());
-		//System.out.println("port ke bad");
+		
 		sender.sendData(sendRegistrationRequest.getMyBytes());
 		TCPReceiver receiver = new TCPReceiver(socket, this);
 		Thread t = new Thread(receiver);
@@ -119,7 +119,7 @@ public class MessagingNode implements Node {
 		case MessageType.REGISTRY_REQUESTS_TASK_INITIATE: requestTask((RegistryRequestTaskInitiate)e,socket); break;
 		
 		case MessageType.OVERLAY_NODE_SENDS_DATA: receivedData((OverlayNodeSendsData)e,socket);
-													//System.out.println("khatam hua ???");
+													
 		break;
 		case MessageType.REGISTRY_REQUESTS_TRAFFIC_SUMMARY: sendTrafficSummary((RegistryRequestsTrafficSummary)e,socket);break;
 		
@@ -143,7 +143,7 @@ public class MessagingNode implements Node {
 			Socket socket2) throws IOException {
 		// TODO Auto-generated method stub
 		OverlayNodeReportsTrafficSummary reportSummary = new OverlayNodeReportsTrafficSummary(currentNodeId,sendPacketCounter,relayedCounter,receivedPacketCounter,payLoadSendCounter,payLoadReceivedCounter);
-		//System.out.println("Mein ne summary bhejSocket s3 = new Socket(e.rip3, e.rport3);
+		
 		
 		sender.sendData(reportSummary.getMyBytes());
 	}
@@ -152,7 +152,7 @@ public class MessagingNode implements Node {
 	private synchronized void receivedData(OverlayNodeSendsData e, Socket socket2) throws IOException {
 		//List<Integer> temp2 = null;
 		// TODO Auto-generated method stub
-		//*********************************************************Juna***************************************************************************
+		//*********************************************************Old Logic***************************************************************************
 		/*if(e.getReceivedDestID() == currentNodeId){
 			synchronized (this) {
 				receivedPacketCounter++;
@@ -195,13 +195,13 @@ public class MessagingNode implements Node {
 				relayedCounter++;
 			}
 		}
-*/		//*********************************************************Juna***************************************************************************	
+*/		//*********************************************************Old***************************************************************************	
 		/*
 		System.out.println("");
 		 System.out.println("********************Task Finished Check Counters*********************************");*/
 		 //System.out.println("Messages sent were :"+e.getReceivedMess());
 		
-		//*********************************************************Naya***************************************************************************
+		//*********************************************************New***************************************************************************
 		if(overlaySize == 3){
 		if(e.getReceivedDestID() == currentNodeId){
 			synchronized (this) {
@@ -279,7 +279,7 @@ public class MessagingNode implements Node {
 					payLoadReceivedCounter+= e.getReceivedPayLoad();
 				}
 			}else if(connection.containsKey(e.getReceivedDestID())){
-					//System.out.println("Direcy Send hua--------------------------------------------------------------------------------------------------");
+					
 					ConnectionCache c = connection.get(e.getReceivedDestID());
 					OverlayNodeSendsData r = new OverlayNodeSendsData(e.getReceivedDestID(),e.getReceivedSourceID(),e.getReceivedPayLoad());
 					synchronized (this) {
@@ -446,7 +446,7 @@ public class MessagingNode implements Node {
 		List<Integer> temp = null;
 		// TODO Auto-generated method stub
 		//System.out.println("Firing is proper ----------");
-		//System.out.println("Start karne ko bola "+e.getReceivedMess());
+		//System.out.println("Started "+e.getReceivedMess());
 		//System.out.println("current node is "+currentNodeId);
 		//System.out.println(" Now I will start sending messages to : ");
 		//System.out.println("IP1 :"+ip1+" IP2 :"+ip2+" IP3 :"+ip3+" Port1 :"+port1+" Port2 :"+port2+" Port3 :"+port3+ " U1 :"+uniqueID1+ " U2 :"+uniqueID2+ " U3 :"+uniqueID3);
@@ -457,7 +457,7 @@ public class MessagingNode implements Node {
 			l.add(receivedList[i]);
 		}
 		if(l.contains(currentNodeId) == true){
-			//System.out.println("Yaha pohocha hu.....");
+			
 			l.remove((Integer)currentNodeId);
 		}
 		/*System.out.println("Nodes present at this moment");
@@ -512,7 +512,7 @@ public class MessagingNode implements Node {
 		 
 	
 	//System.out.println("Ip-----------------------------"+ip);
-	//System.out.println("Kaaammmm khatammmm hua woh bola mein neeeeeeeeeeeeeeeeeeeeeeeeeeeeee");
+	
 	
 //*********************************************************************************************************************************
 		 //*********************Start of Overlay Node Reports Task Finished*****************
@@ -520,7 +520,7 @@ public class MessagingNode implements Node {
 		/* OverlayNodeReportsTaskFinished taskFinished = new OverlayNodeReportsTaskFinished(1);
 		 sender.sendData(taskFinished.getMyBytes());*/
 		//*********************End of Overlay Node Reports Task Finished*****************
-		//*********************NEW KACHARA********************************************************************************************
+		//*********************NEW COde********************************************************************************************
 		
 		if(overlaySize==3){
 		
@@ -531,7 +531,7 @@ public class MessagingNode implements Node {
 			//System.out.println("Random Destination selected "+randomDestination);
 			
 			if(connection.containsKey(randomDestination)){
-				//System.out.println("Direcy Send hua--------------------------------------------------------------------------------------------------");
+				
 				ConnectionCache c = connection.get(randomDestination);
 				OverlayNodeSendsData r = new OverlayNodeSendsData(randomDestination,currentNodeId,payLoad);
 				synchronized (this) {
@@ -558,7 +558,7 @@ public class MessagingNode implements Node {
 						payLoadSendCounter+=payLoad;
 					}
 				}	
-			}//else if (randomDestination<uniqueID1||randomDestination>uniqueID2) {System.out.println("------------------------------------------------------------------------------------------------------------------------");}
+			}//else if (randomDestination<uniqueID1||randomDestination>uniqueID2) }
 				
 			else if(randomDestination>uniqueID2 || randomDestination<uniqueID3){
 				
@@ -604,7 +604,7 @@ public class MessagingNode implements Node {
 				//System.out.println("Random Destination selected "+randomDestination);
 				
 				if(connection.containsKey(randomDestination)){
-					//System.out.println("Direcy Send hua--------------------------------------------------------------------------------------------------");
+					
 					ConnectionCache c = connection.get(randomDestination);
 					OverlayNodeSendsData r = new OverlayNodeSendsData(randomDestination,currentNodeId,payLoad);
 					synchronized (this) {
