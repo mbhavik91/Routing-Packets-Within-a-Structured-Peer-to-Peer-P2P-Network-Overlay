@@ -37,7 +37,7 @@ public class ServerThread extends Thread {
 			e1.printStackTrace();
 		}
 		n.setServerPort(serverSocket.getLocalPort());
-		//System.out.println("In server Thread****************************************************************************************");
+		
 		while(true){
 		try {
 			Socket socket = serverSocket.accept();
