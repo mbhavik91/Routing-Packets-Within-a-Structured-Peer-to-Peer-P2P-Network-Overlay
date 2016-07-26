@@ -28,7 +28,7 @@ public class NodeReportsOverlaySetupStatus implements Event {
 		if(s == 1){
 			message = "Setup - Complete";
 		}else {
-			message = "Setup - problem";
+			message = "Setup - Problem";
 		}
 	}
 	
