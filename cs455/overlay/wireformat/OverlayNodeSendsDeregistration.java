@@ -74,7 +74,7 @@ public class OverlayNodeSendsDeregistration implements Event {
 		DataOutputStream dOutputStream = new DataOutputStream(new BufferedOutputStream(byteArrayOutputStream));
 		
 		dOutputStream.writeByte(MessageType.OVERLAY_NODE_SENDS_DEREGISTRATION_REQUEST);
-		byte[] ip = nodeIP.getBytes(); 	//convert client ip into bytes
+		byte[] ip = nodeIP.getBytes(); 	//convert client ip into bytess
 		int ipByteLenght = ip.length;
 		dOutputStream.writeInt(ipByteLenght);
 		dOutputStream.write(ip);
