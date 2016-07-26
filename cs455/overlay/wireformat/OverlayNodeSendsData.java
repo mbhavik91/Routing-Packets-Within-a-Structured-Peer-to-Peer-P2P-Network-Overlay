@@ -50,7 +50,7 @@ public class OverlayNodeSendsData implements Event{
 	private int destID; private int sourceID; private long payLoad; private int trace1; private int trace2; int report;
 	private int receivedDestID; private int receivedSourceID; private long receivedPayLoad; private int receivedTrace1; private int receivedTrace2;
 	public OverlayNodeSendsData(int destID, int sourceID, long payLoad){
-		//System.out.println("Overlay Node start send data const-------------------------");
+		//System.out.println("Overlay Node start send data-------------------------");
 		this.destID = destID;
 		this.sourceID = sourceID;
 		this.payLoad = payLoad;
@@ -59,7 +59,7 @@ public class OverlayNodeSendsData implements Event{
 		
 	}
 	public OverlayNodeSendsData(byte[] marshalledData) throws IOException{
-		//System.out.println("Overlay Node start receive data const-------------------------");
+		//System.out.println("Overlay Node started receiving data-------------------------");
 		ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(marshalledData);
 		DataInputStream dataInputStream = new DataInputStream(new BufferedInputStream(byteArrayInputStream));
 		report = dataInputStream.readByte();
