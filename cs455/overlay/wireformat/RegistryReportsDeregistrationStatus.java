@@ -25,7 +25,7 @@ public class RegistryReportsDeregistrationStatus implements Event{
 	public int receivedDeregistrationStatus;
 	public String receivedDeregistrationMessage;
 	public RegistryReportsDeregistrationStatus(int stat){
-		//System.out.println("RegistryReportsDeregistrationStatus................send karte waqt");
+		
 		statusOfDeregistration = stat;
 		if (statusOfDeregistration == 1) {
 			deregistrationMessage = "Deregistered successfully !!!!";
