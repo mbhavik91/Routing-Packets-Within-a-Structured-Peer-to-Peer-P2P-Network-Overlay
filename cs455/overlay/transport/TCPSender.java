@@ -28,7 +28,7 @@ public class TCPSender {
 		//socket.getOutputStream();
 		int dataLenght = data.length;
 		try {
-			//System.out.println("TCP Sender");
+			
 			dataOutputStream.writeInt(dataLenght);
 			dataOutputStream.write(data, 0, dataLenght);
 			dataOutputStream.flush();
