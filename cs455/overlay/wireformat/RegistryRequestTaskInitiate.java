@@ -29,7 +29,6 @@ public class RegistryRequestTaskInitiate implements Event{
 	public RegistryRequestTaskInitiate(int messageSize) {
 		// TODO Auto-generated constructor stub
 		ms = messageSize;
-		//System.out.println("Task Initiate ke constructoe mein hu.......................................");
 	}
 
 	public RegistryRequestTaskInitiate(byte[] marshalledData) throws IOException{
