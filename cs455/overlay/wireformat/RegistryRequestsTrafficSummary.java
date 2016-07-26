@@ -18,8 +18,6 @@ import java.io.IOException;
 public class RegistryRequestsTrafficSummary implements Event {
 	
 	public RegistryRequestsTrafficSummary(){
-		
-		//System.out.println("RegistryRequestsTrafficSummary ----------------------------------------");
 	}
 	
 	public RegistryRequestsTrafficSummary(byte[] marshalledData) throws IOException{
