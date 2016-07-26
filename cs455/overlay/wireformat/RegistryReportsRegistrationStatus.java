@@ -46,7 +46,7 @@ public class RegistryReportsRegistrationStatus implements Event{
 		
 		uID = uniqueId;
 		if(status == 1){
-			message = "Node added successefully... Your Unique Id is :";
+			message = "Node added successefully...!!!";
 		}
 		else if (status == 0) {
 			message = "Node not added";
