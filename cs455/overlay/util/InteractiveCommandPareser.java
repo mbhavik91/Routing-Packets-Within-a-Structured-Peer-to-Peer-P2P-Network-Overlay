@@ -94,7 +94,7 @@ public class InteractiveCommandPareser extends Thread{
 				break;
 			case "list-routing-tables": rt.displayRoutingInfo();break;
 
-		default: System.out.println("Entered wrong value... Please enter the command properly");
+		default: System.out.println("Entered wrong value... Please enter the command!");
 			break;
 		}
 		}
