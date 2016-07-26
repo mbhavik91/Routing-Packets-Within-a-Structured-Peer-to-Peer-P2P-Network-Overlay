@@ -59,6 +59,7 @@ public class OverlayNodeSendsRegistrationRequest implements Event{
 		dOutputStream.close();
 		return marshalledBytes;
 	}
+	//everything good till now
 
 	@Override
 	public int getType() {
