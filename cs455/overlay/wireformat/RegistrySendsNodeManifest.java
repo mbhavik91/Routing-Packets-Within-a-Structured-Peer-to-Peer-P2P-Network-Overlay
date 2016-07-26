@@ -39,13 +39,11 @@ public class RegistrySendsNodeManifest implements Event{
 		this.u1 = u1;
 		this.u2 = u2;
 		this.u3 = u3;
-		//System.out.println("Node Manifest ke Const");
 		this.b2 = b2;
 	}
 	
 	public RegistrySendsNodeManifest(byte[] marshalledData) throws IOException{
 		
-		//System.out.println("In const RSNM");
 		ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(marshalledData);
 		DataInputStream dataInputStream = new DataInputStream(new BufferedInputStream(byteArrayInputStream));
 		
@@ -139,7 +137,6 @@ public class RegistrySendsNodeManifest implements Event{
 		this.u2 = u22;
 		this.u3 = u32;
 		this.u4 = u4;
-		//System.out.println("Node Manifest ke Const");
 		this.b2 = b3;
 		
 	}
@@ -163,21 +160,21 @@ public class RegistrySendsNodeManifest implements Event{
 		byte[] ipx = ip2.getBytes(); 	//convert client ip into bytes
 		int ipByteLenght1 = ipx.length;
 		dOutputStream.writeInt(ipByteLenght1);
-		dOutputStream.write(ipx);  // ip lakhayu
+		dOutputStream.write(ipx);  // ip written
 		dOutputStream.writeInt(p2);
 		
 		dOutputStream.writeInt(u3);
 		byte[] ipy = ip3.getBytes(); 	//convert client ip into bytes
 		int ipByteLenghtx = ipy.length;
 		dOutputStream.writeInt(ipByteLenghtx);
-		dOutputStream.write(ipy);  // ip lakhayu
+		dOutputStream.write(ipy);  // ip written
 		dOutputStream.writeInt(p3);
 		
 		dOutputStream.writeInt(u4);
 		byte[] ipz = ip4.getBytes(); 	//convert client ip into bytes
 		int ipByteLenghtxz = ipz.length;
 		dOutputStream.writeInt(ipByteLenghtxz);
-		dOutputStream.write(ipz);  // ip lakhayu
+		dOutputStream.write(ipz);  // ip written
 		dOutputStream.writeInt(p4);
 		
 		int l = b2.length;
@@ -206,7 +203,7 @@ public class RegistrySendsNodeManifest implements Event{
 		byte[] ip = ip1.getBytes(); 	//convert client ip into bytes
 		int ipByteLenght = ip.length;
 		dOutputStream.writeInt(ipByteLenght);
-		dOutputStream.write(ip);  // ip lakhayu
+		dOutputStream.write(ip);  // ip written
 		dOutputStream.writeInt(p1);
 		
 		
@@ -214,14 +211,14 @@ public class RegistrySendsNodeManifest implements Event{
 		byte[] ipx = ip2.getBytes(); 	//convert client ip into bytes
 		int ipByteLenght1 = ipx.length;
 		dOutputStream.writeInt(ipByteLenght1);
-		dOutputStream.write(ipx);  // ip lakhayu
+		dOutputStream.write(ipx);  // ip written
 		dOutputStream.writeInt(p2);
 		
 		dOutputStream.writeInt(u3);
 		byte[] ipy = ip3.getBytes(); 	//convert client ip into bytes
 		int ipByteLenghtx = ipy.length;
 		dOutputStream.writeInt(ipByteLenghtx);
-		dOutputStream.write(ipy);  // ip lakhayu
+		dOutputStream.write(ipy);  // ip written
 		dOutputStream.writeInt(p3);
 		 
 		int lx = b2.length;
