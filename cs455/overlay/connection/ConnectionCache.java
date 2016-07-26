@@ -2,7 +2,7 @@
  * 
  */
 package cs455.overlay.connection;
-
+//
 import java.io.IOException;
 import java.net.Socket;
 
@@ -38,7 +38,7 @@ public class ConnectionCache {
 		this.n=n;
 		rTcpSender = new TCPSender(s);
 		rTcpReceiver = new TCPReceiver(s,n);
-		//System.out.println("Connection Cache ke constr");
+		//System.out.println("Connection Cache constr");
 		Thread t = new Thread(rTcpReceiver);
 		setrTcpReceiver(rTcpReceiver);
 		t.start();
